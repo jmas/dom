@@ -4,10 +4,22 @@
 // Exports
 
 module.exports = {
+  body: function() {
+    var body = document.getElementsByTagName('BODY');
+    return body ? body[0]: null;
+  },
+  get: function(id) {
+    return document.getElementById(id);
+  },
+  query: function(node, selector) {
+    if (!this.isNode(node)) {
+      throw Error('node is wrong.');
+    }
+    return node.querySelector(selector);
+  },
   removeChildNodes: function(node) {
     if (! this.isNode(node)) {
-      console.warn('node is wrong.');
-      return;
+      throw Error('node is wrong.');
     }
 
     while (node.firstChild) {
@@ -25,13 +37,11 @@ module.exports = {
     pos = pos || 'beforeend';
 
     if (! html instanceof String) {
-      console.warn('html is not string.');
-      return;
+      throw Error('html is not string.');
     }
 
     if (! node) {
-      console.warn('node is wrong.');
-      return;
+      throw Error('node is wrong.');
     }
 
     node.insertAdjacentHTML(pos, html);
