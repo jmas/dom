@@ -1,9 +1,12 @@
 "use strict";
 
 
-// Exports
+// Varibles
 
 var body = null;
+
+
+// Exports
 
 module.exports = {
   body: function() {
