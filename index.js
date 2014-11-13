@@ -73,5 +73,17 @@ module.exports = {
     } else {
       el['on' + eventName] = handlerFn;
     }
+  },
+  findParentNode: function(node, attrName) {
+    if (! this.isNode(node)) {
+      throw Error('node is wrong.');
+    }
+    while (node) {
+      if (node.getAttribute && node.getAttribute(attrName) !== null) {
+        break;
+      }
+      node = node.parentNode;
+    }
+    return node;
   }
 };
