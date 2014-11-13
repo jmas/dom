@@ -3,9 +3,13 @@
 
 // Exports
 
+var body = null;
+
 module.exports = {
   body: function() {
-    var body = document.getElementsByTagName('BODY');
+    if (! body) {
+      body = document.getElementsByTagName('BODY');
+    }
     return body ? body[0]: null;
   },
   get: function(id) {
