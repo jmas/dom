@@ -33,6 +33,12 @@ module.exports = {
       node.removeChild(node.firstChild);  
     }
   },
+  replaceNode: function(oldNode, newNode) {
+    if (!this.isNode(oldNode) || !this.isNode(newNode) || !oldNode.parentNode) {
+      throw Error('node is wrong.');
+    }
+    return oldNode.parentNode.replaceChild(newNode, oldNode);
+  },
   replaceHtml: function(node, html) {
     this.removeChildNodes(node);
     this.html(node, html);
