@@ -59,9 +59,6 @@ module.exports = {
       obj && typeof obj === "object" && typeof obj.nodeType === "number" && typeof obj.nodeName==="string"
     );
   },
-  scrollTo: function(el, to, duration) {
-    el.scrollTop = to;
-  },
   addListener: function(el, eventName, handlerFn) {
     if (typeof el.addEventListener !== 'undefined') {
       el.addEventListener(eventName, handlerFn, false);
